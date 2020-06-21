@@ -1,7 +1,5 @@
 # Foodfy
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 Foodfy é um site de receitas que foi proposto como desafio pelo curso LauchBase da Rocketseat
 
 ### Sobre
