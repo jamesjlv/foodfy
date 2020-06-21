@@ -14,3 +14,7 @@ Dillinger uses a number of open source projects to work properly:
 * [CSS] - CSS para estilização
 * [JavaScript] - JS para controlar o modal onde apresenta uma decrição da receita dentro da página recipe.html
 
+### Preview
+
+Página principal:
+![Preview](https://ibb.co/52fktM1)
