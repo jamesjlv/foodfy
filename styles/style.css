@@ -181,6 +181,7 @@ footer p {
 }
 
 .modal_recipe.active {
+  transition: 400ms;
   opacity: 1;
   visibility: visible;
 }
