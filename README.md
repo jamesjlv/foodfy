@@ -17,4 +17,4 @@ Dillinger uses a number of open source projects to work properly:
 ### Preview
 
 Página principal:
-![Preview](https://ibb.co/52fktM1)
+[![Preview](https://i.ibb.co/rv13T7Q/Screen-Hunter-64.png)](https://i.ibb.co/rv13T7Q/Screen-Hunter-64.png)
