@@ -1,0 +1,25 @@
+{
+  "name": "foodfy",
+  "version": "1.0.0",
+  "description": "Foodfy é um site de receitas que foi proposto como desafio pelo curso LauchBase da Rocketseat",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesjlv/foodfy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesjlv/foodfy/issues"
+  },
+  "homepage": "https://github.com/jamesjlv/foodfy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "nunjucks": "^3.2.1"
+  }
+}

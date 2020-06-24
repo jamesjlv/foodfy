@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: 'Roboto',
+    sans-serif;
+  color: #111111;
+}
+
+header {
+  display: flex;
+  margin: 0px auto;
+  width: 940px;
+  padding: 30px 30px 30px;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 124px;
+}
+
+.itens a {
+  margin-right: 30px;
+  text-decoration: none;
+  color: #111111;
+}
+
+.apresentation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: 0px auto;
+  height: 366px;
+  width: 940px;
+  background-color: #fbdfdb;
+  border-radius: 30px;
+}
+
+.description h1 {
+  align-items: center;
+  margin-left: 60px;
+  max-width: 305px;
+  max-height: 38px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.description h2 {
+  margin-left: 60px;
+  margin-top: 10px;
+  max-width: 316px;
+  max-height: 84px;
+  opacity: 0.7;
+  font-weight: normal;
+  font-size: 18px;
+  color: #000000;
+}
+
+.chef_img {
+  text-align: end;
+  margin-right: 100px;
+}
+
+.more_acess {
+  width: 940px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.recipe {
+  width: 940px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.recipe .recipe_card {
+  width: 300px;
+  margin: 0px 20px 30px 0px;
+}
+
+
+.recipe .recipe_card img {
+  width: 300px;
+  height: 140px;
+  border-radius: 15px;
+}
+
+.recipe .recipe_card .recipe_desc {
+  margin-top: 20px;
+
+}
+
+.recipe .recipe_card .recipe_desc h2 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #111111;
+}
+
+.recipe .recipe_card .recipe_desc p {
+  font-size: 14px;
+  color: #777777;
+}
+
+footer {
+  margin-top: 20px;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #EEEEEE;
+}
+
+footer p {
+  padding-top: 23px;
+  text-align: center;
+}
+
+
+
+
+/* ------- Style About ------- */
+
+.content_about {
+  margin: 0 auto;
+  width: 940px;
+}
+
+.content_about .about_history h1 {
+  font-weight: bold;
+  font-size: 24px;
+  color: #111111;
+  margin: 20px 0px 20px 0px;
+}
+
+.content_about p {
+  font-size: 18px;
+  font-weight: normal;
+  color: #444444;
+  line-height: 28px;
+}
+
+.content_about h2 {
+  margin: 30px 0px 20px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111111;
+}
+
+
+/* ---------- Style Recipe.html ------- */
+
+.content_recipe {
+  margin-top: 20px;
+}
+
+.modal_recipe {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  visibility: hidden;
+}
+
+.modal_recipe .recipe_desc {
+  position: relative;
+  width: 660px;
+  height: 431px;
+  margin: 20vh auto;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.modal_recipe.active {
+  transition: 400ms;
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal_recipe .recipe_img {
+  display: flex;
+}
+
+.modal_recipe .recipe_desc img {
+  width: 600px;
+  height: 200px;
+  margin: 30px auto;
+  border-radius: 15px;
+}
+
+.modal_recipe .recipe_desc h1 {
+  font-weight: normal;
+  font-size: 24px;
+  color: #111111;
+  text-align: center;
+}
+
+.modal_recipe .recipe_desc h2 {
+  font-weight: normal;
+  font-size: 18px;
+  color: #777777;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 60px;
+}
+
+.modal_recipe .modal_close {
+  font-weight: normal;
+  text-align: center;
+  color: #777777;
+  cursor: pointer;
+}
+
+/* ---------- Style Recipe_desc ----------- */
+
+.content_recipe_desc {
+  margin: 0 auto;
+  width: 940px;
+}
+
+.content_recipe_desc img {
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 940px;
+}
+
+.content_recipe_desc h1 {
+  font-weight: bold;
+  color: #111111;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.content_recipe_desc .author {
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 50px;
+  font-size: 20px;
+  color: #777777;
+}
+
+.content_recipe_desc h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111111;
+  margin-bottom: 20px;
+  margin-top: 39px;
+}
+
+.content_recipe_desc .information p {
+  font-size: 18px;
+  color: #444444;
+  line-height: 28px;
+}
+
+.content_recipe_desc .preparation li {
+  font-size: 18px;
+  color: #444444;
+  line-height: 28px;
+}
+
+.content_recipe_desc .ingredients li {
+  font-size: 18px;
+  color: #444444;
+  line-height: 28px;
+}
+
+.content_recipe_desc span {
+  font-size: 12px;
+  color: #999999;
+  cursor: pointer;
+}
