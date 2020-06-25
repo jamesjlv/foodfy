@@ -13,60 +13,21 @@
   </div>
   <p class="more_acess">Mais acessadas</p>
   <div class="recipe">
+    {%for recipe in items%}
 
-    <div class="recipe_card">
-      <div class="recipe_img">
-        <img src="/img/burger.png" alt="Triplo Bacon burger">
+      <div class="recipe_card" id="{{loop.index0}}">
+        <div class="recipe_img">
+          <img src="{{recipe.image}}" alt="{{recipe.title}}">
+        </div>
+        <div class="recipe_desc">
+          <h2>{{recipe.title}}</h2>
+          <p>{{recipe.author}}</p>
+        </div>
       </div>
-      <div class="recipe_desc">
-        <h2>Triplo bacon burger</h2>
-        <p>por Jorge Relato</p>
-      </div>
+      {%endfor%}
     </div>
-    <div class="recipe_card">
-      <div class="recipe_img">
-        <img src="./img/pizza.png" alt="Pizza 4 estações">
-      </div>
-      <div class="recipe_desc">
-        <h2>Pizza 4 estações</h2>
-        <p>por Fabiana Melo</p>
-      </div>
-    </div>
-    <div class="recipe_card">
-      <div class="recipe_img">
-        <img src="./img/espaguete.png" alt="Espaguete ao alho">
-      </div>
-      <div class="recipe_desc">
-        <h2>Espaguete ao alho</h2>
-        <p>por Júlia Kinoto</p>
-      </div>
-    </div>
-    <div class="recipe_card">
-      <div class="recipe_img">
-        <img src="./img/lasanha.png" alt="Lasanha mac n' cheese">
-      </div>
-      <div class="recipe_desc">
-        <h2>Lasanha mac n' cheese</h2>
-        <p>por Juliano Vieira</p>
-      </div>
-    </div>
-    <div class="recipe_card">
-      <div class="recipe_img">
-        <img src="./img/doce.png" alt="Docinhos Pão do Céu">
-      </div>
-      <div class="recipe_desc">
-        <h2>Docinhos pão-do-céu</h2>
-        <p>por Ricardo Golvea</p>
-      </div>
-    </div>
-    <div class="recipe_card">
-      <div class="recipe_img">
-        <img src="./img/asinhas.png" alt="Asinhas de frango ao barbecue">
-      </div>
-      <div class="recipe_desc">
-        <h2>Asinhas de frango ao barbecue</h2>
-        <p>por Vania Steroski</p>
-      </div>
-    </div>
-  </div>
-  {%endblock%}
+    {%endblock%}
+
+    {%block scripts%}
+      <script src="/card_recipe.js"></script>
+      {%endblock%}
