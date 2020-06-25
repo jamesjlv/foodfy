@@ -261,22 +261,40 @@ footer p {
   font-size: 18px;
   color: #444444;
   line-height: 28px;
+
 }
 
 .content_recipe_desc .preparation li {
   font-size: 18px;
   color: #444444;
   line-height: 28px;
+  list-style-position: inside;
+
 }
 
 .content_recipe_desc .ingredients li {
   font-size: 18px;
   color: #444444;
   line-height: 28px;
+  list-style-position: inside;
 }
 
 .content_recipe_desc span {
   font-size: 12px;
   color: #999999;
   cursor: pointer;
+}
+
+/* ------ esconde ----- */
+
+.content_recipe_desc .information.active {
+  display: none;
+}
+
+.content_recipe_desc .preparation.active {
+  display: none;
+}
+
+.content_recipe_desc .ingredients.active {
+  display: none;
 }

@@ -6,11 +6,11 @@
     <h1>{{recipe.title}}</h1>
     <p class="author">Por
       {{recipe.author}}</p>
-    <div class="item ingredients">
+    <div class="item">
       <h3>Ingredientes
         <span>Esconder</span></h3>
 
-      <div class="content_ingredient">
+      <div class="ingredients">
         <ul>
           {%for ingredient in recipe.ingredients%}
             <li>{{ingredient}}</li>
@@ -18,10 +18,10 @@
           </ul>
         </div>
       </div>
-      <div class="item preparation">
+      <div class="item">
         <h3>Modo de preparo
           <span>Esconder</span></h3>
-        <div class="content_preparation">
+        <div class="preparation">
           <ul>
             {%for instructions in recipe.preparation%}
               <li>{{instructions}}</li>
@@ -29,11 +29,11 @@
             </ul>
           </div>
         </div>
-        <div class="item information">
+        <div class="item">
           <h3>Informações adicionais
             <span>Esconder</span></h3>
 
-          <div class="content_information">
+          <div class="information">
             <p>{{recipe.information}}</p>
           </div>
         </div>
