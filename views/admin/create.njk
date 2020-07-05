@@ -1,0 +1,15 @@
+{% extends "admin/layout.njk" %}
+
+{% block content %}
+  <form class="content_admin_create formCreate" action="/admin/recipes" method="POST">
+    <section class="details">
+      <h1>Criando receita</h1>
+
+      {%include "admin/fields.njk" %}
+    </section>
+  </form>
+{% endblock content %}
+
+{% block scripts %}
+  <script src="/recipe_admin.js"></script>
+{% endblock scripts %}

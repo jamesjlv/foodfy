@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    {%block head%}
+      <title>FOODFY</title>
+      {%endblock%}
+      <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+      <header class="admin">
+        <div class="logoAdmin">
+          <a href="/"><img src="/img/logo_admin.png" alt="Logotipo do restaurante FoodFy"></a>
+        </div>
+      </header>
+
+      {% block content%}{%endblock%}
+
+        {% block scripts %}{% endblock %}
+
+      </body>
+    </html>

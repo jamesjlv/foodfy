@@ -1,0 +1,24 @@
+{%extends "admin/layout.njk"%}
+
+{% block content %}
+  <div class="content_admin_create">
+    <form class="formEdit" action="/admin/recipes?_method=PUT" method="POST">
+      <section class="details">
+        <h1>Editando receita</h1>
+        <input type="hidden" name="id" value="{{id}}">
+        {%include "admin/fields.njk" %}
+      </section>
+
+    </form>
+
+    <form class="formDelete" action="/admin/recipes?_method=DELETE" method="POST">
+      <input type="hidden" name="id" value="{{id}}">
+      <button type="submit">Deletar</button>
+    </form>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+  <script src="/recipe_admin.js"></script>
+  <script src="/confirm.js"></script>
+{% endblock scripts %}
