@@ -9,6 +9,9 @@ routes.get("/", recipes.index);
 routes.get("/recipe", recipes.showRecipes);
 routes.get("/about", recipes.showAbout);
 routes.get("/recipe/:id", recipes.recipeDetails);
+routes.get("/chefs", recipes.showChefs);
+
+routes.get("/search", recipes.find);
 
 // Rotas para administração do site
 routes.get("/admin/", (req, res) => {

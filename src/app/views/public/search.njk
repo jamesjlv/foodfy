@@ -10,6 +10,8 @@
 {%block content%}
 
   <div class="content_recipe">
+    <h1>Buscando por:
+      {{filter}}</h1>
     <div class="recipe">
       {%for recipe in recipes%}
         <div class="recipe_card" id="{{recipe.id}}">

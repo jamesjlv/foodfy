@@ -3,8 +3,14 @@
 {% block content %}
 
   <div class="content_admin_chefs">
-    <h1>Gerenciar Chefs</h1>
-
+    <div class="header">
+      <div>
+        <h1>Gerenciar Chefs</h1>
+      </div>
+      <div class="button_primary">
+        <a href="/admin/chefs/create">Criar novo</a>
+      </div>
+    </div>
     <div class="chefs">
       {% for chef in chefs %}
         <div class="item">

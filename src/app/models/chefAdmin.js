@@ -112,7 +112,6 @@ module.exports = {
       callback(results.rowCount)
     })
 
-
   },
   paginate(params) {
 

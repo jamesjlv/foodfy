@@ -12,12 +12,16 @@ body {
 }
 
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  box-sizing: border-box;
   margin: 0px auto;
   width: 940px;
-  padding: 30px 30px 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   align-items: center;
 }
+
 
 .logo {
   margin-right: 124px;
@@ -114,7 +118,7 @@ header {
 }
 
 footer {
-  margin-top: 20px;
+  margin-top: 16px;
   bottom: 0;
   width: 100%;
   height: 60px;
@@ -155,7 +159,9 @@ footer p {
 }
 
 .content_recipe {
+  margin: 0 auto;
   margin-top: 20px;
+  width: 940px;
 }
 
 /* ---------- Style Recipe_desc ----------- */
@@ -602,5 +608,98 @@ header.admin {
   font-weight: bold;
   font-size: 14px;
   color: #6558c3;
+  text-decoration: none;
+}
+
+
+/* Chefs publico */
+
+.content_admin_chefs.public {
+  margin-top: 30px;
+}
+
+.content_admin_chefs.public h4 {
+  font-weight: normal;
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Box of Search */
+
+.filter {
+  align-self: center;
+  display: flex;
+  justify-self: end;
+}
+
+.filter input {
+  font-family: "Roboto";
+  width: 246px;
+  height: 37px;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  padding-left: 15px;
+  align-self: center;
+  font-size: 14px;
+  color: #999999;
+}
+
+.filter button {
+  font-family: "Roboto";
+  width: 91px;
+  height: 37px;
+  background: #6558c3;
+  align-self: center;
+  margin-left: 8px;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.content_recipe h1 {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 24px;
+  color: #111111;
+  margin: 16px 16px 16px 0;
+}
+
+.pagination {
+  text-align: center;
+}
+
+.pagination span,
+.pagination a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #6558c3;
+  padding-right: 4px;
+}
+
+.content_index_admin .header,
+.content_admin_chefs .header {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  align-items: center;
+}
+
+.content_index_admin .header .button_primary,
+.content_admin_chefs .header .button_primary {
+  width: 91px;
+  height: 37px;
+  background: #6558c3;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content_index_admin .header .button_primary a,
+.content_admin_chefs .header .button_primary a {
+  font-family: "Roboto";
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
   text-decoration: none;
 }
