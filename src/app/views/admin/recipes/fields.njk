@@ -1,11 +1,25 @@
 <div class="image">
+  <h2>Titulo da receira</h2>
+  <input type="text" name="title" placeholder="Digite um titulo para a receita" value="{{recipe.title}}">
+</div>
+
+<div class="image">
   <h2>Imagem da receita</h2>
   <input type="URL" name="image" placeholder="https://" value="{{recipe.image}}">
 </div>
 
+<div class="chef">
+  <h2>Chef</h2>
+  <select name="chef_id">
+    <option>Selecione um chef</option>
+    {% for chef in chefs %}
+      <option value="{{chef.id}}" {% if chef.id == recipe.chef_id %} selected="selected" {% endif %}>{{chef.name}}</option>
+    {% endfor %}
+  </select>
+</div>
+
 <div id="ingredients">
   <h2>Ingredientes</h2>
-
   {% if recipe %}
     {% for ingredient in recipe.ingredients %}
       <div class="ingredient">
@@ -17,13 +31,11 @@
       <input type="text" name="ingredients[]" value="" placeholder="Informe um ingrediente por vez"/>
     </div>
   {% endif %}
-
 </div>
 <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
 
 <div id="preparation">
   <h2>Modo de preparo</h2>
-
   {% if recipe %}
     {% for prepare in recipe.preparation %}
       <div class="prepare">

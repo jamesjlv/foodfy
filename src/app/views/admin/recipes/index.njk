@@ -9,8 +9,8 @@
           <div class="img"><img src="{{recipe.image}}"></div>
           <div class="item_content">
             <h2>{{recipe.title}}</h2>
-            <h3>{{recipe.author}}</h3>
-            <a href="/admin/recipes/{{loop.index0}}">Visualizar</a>
+            <h3>{{recipe.recipe_author}}</h3>
+            <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
           </div>
         </div>
       {% endfor %}

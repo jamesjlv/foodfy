@@ -1,4 +1,4 @@
-{%extends "admin/layout.njk"%}
+{%extends "../layout.njk"%}
 
 {% block content %}
   <div class="content_admin_create">
@@ -6,7 +6,7 @@
       <section class="details">
         <h1>Editando receita</h1>
         <input type="hidden" name="id" value="{{id}}">
-        {%include "admin/fields.njk" %}
+        {%include "./fields.njk" %}
       </section>
 
     </form>

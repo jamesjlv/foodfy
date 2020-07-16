@@ -1,18 +1,18 @@
-{%extends "layout.njk"%}
+{%extends "./layout.njk"%}
 
 {%block content%}
 
   <div class="content_recipe">
     <div class="recipe">
-      {%for recipe in items%}
+      {%for recipe in recipes%}
 
-        <div class="recipe_card" id="{{loop.index0}}">
+        <div class="recipe_card" id="{{recipe.id}}">
           <div class="recipe_img">
             <img src="{{recipe.image}}" alt="{{recipe.title}}">
           </div>
           <div class="recipe_desc">
             <h2>{{recipe.title}}</h2>
-            <p>{{recipe.author}}</p>
+            <p>{{recipe.recipe_author}}</p>
           </div>
         </div>
         {%endfor%}
