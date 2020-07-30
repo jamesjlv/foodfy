@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = express.Router();
+const multer = require('./app/middlwares/multer')
 const recipes = require("./app/controller/recipes");
 const recipesAdmin = require("./app/controller/recipesAdmin");
 const chefsAdmin = require("./app/controller/chefsAdmin");
@@ -22,8 +23,8 @@ routes.get("/admin/recipes/create", recipesAdmin.create); // Mostrar formulário
 routes.get("/admin/recipes/:id", recipesAdmin.show); // Exibir detalhes de uma receita
 routes.get("/admin/recipes/:id/edit", recipesAdmin.edit); // Mostrar formulário de edição de receita
 
-routes.post("/admin/recipes", recipesAdmin.post); // Cadastrar nova receita
-routes.put("/admin/recipes", recipesAdmin.put); // Editar uma receita
+routes.post("/admin/recipes", multer.array("photos", 5), recipesAdmin.post); // Cadastrar nova receita
+routes.put("/admin/recipes", multer.array("photos", 5), recipesAdmin.put); // Editar uma receita
 routes.delete("/admin/recipes", recipesAdmin.delete); // Deletar uma receita
 
 // Rotas para a administração dos chefs
@@ -34,8 +35,8 @@ routes.get("/admin/chefs/:id", chefsAdmin.show); // Mostra os detalhes do chef
 routes.get("/admin/chefs/:id/edit", chefsAdmin.edit); //Edita o cadastro do chef
 
 
-routes.post("/admin/chefs", chefsAdmin.post); // Cadastra novo Chef
-routes.put("/admin/chefs", chefsAdmin.put); // Salva a edição do novo chef
+routes.post("/admin/chefs", multer.array("avatar", 1), chefsAdmin.post); // Cadastra novo Chef
+routes.put("/admin/chefs", multer.array("avatar", 1), chefsAdmin.put); // Salva a edição do novo chef
 routes.delete("/admin/chefs", chefsAdmin.delete); // Deletar o chef
 
 

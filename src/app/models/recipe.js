@@ -4,9 +4,10 @@ const db = require('../../config/db');
 module.exports = {
   all(callback) {
     const query = `
-    SELECT recipes.*, chefs.name AS recipe_author
+    SELECT recipes.*, chefs.name AS recipe_author,
+      (select SUBSTRING(files.path, 7) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS image
     FROM recipes
-    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+    LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
     ORDER BY TITLE ASC`
 
     db.query(query, (err, results) => {
@@ -17,10 +18,11 @@ module.exports = {
   },
   moreAcess(callback) {
     const query = `
-    SELECT recipes.*, chefs.name AS recipe_author
+    SELECT recipes.*, chefs.name AS recipe_author,
+      (select SUBSTRING(files.path, 7) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS image
     FROM recipes
-    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-    ORDER BY recipes.id ASC LIMIT 6 `
+    LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
+    ORDER BY TITLE ASC LIMIT 6`
 
     db.query(query, (err, results) => {
       if (err) throw `Erro ao buscar receitas: ${err}`
@@ -31,7 +33,8 @@ module.exports = {
   },
   find(filter, callback) {
     const query = `
-    SELECT recipes.*, chefs.name AS recipe_author
+    SELECT recipes.*, chefs.name AS recipe_author,
+    (select SUBSTRING(files.path, 7) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS image
     FROM recipes
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
     WHERE recipes.title ILIKE '%${filter}%'
@@ -45,7 +48,8 @@ module.exports = {
   },
   showRecipe(id, callback) {
     const query = `
-    SELECT recipes.*, chefs.name AS recipe_author
+    SELECT recipes.*, chefs.name AS recipe_author,
+    (select SUBSTRING(files.path, 7) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS image
     FROM recipes
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
     WHERE recipes.id = '${id}'
@@ -81,7 +85,8 @@ module.exports = {
         ) AS total`
     }
 
-    query = `SELECT recipes.*,chefs.name AS recipe_author, ${totalQuery}
+    query = `SELECT recipes.*,chefs.name AS recipe_author, ${totalQuery},
+    (select SUBSTRING(files.path, 7) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS image
     FROM recipes
     LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
     ${filterQuery}
@@ -96,12 +101,12 @@ module.exports = {
 
   },
   allChefs(callback) {
-    const query = `
-    SELECT chefs.*, count(recipes) AS qtd_recipes
+    const query = `SELECT chefs.*,
+      count(recipes) AS qtd_recipes, (select SUBSTRING(files.path, 7) from files where chefs.file_id = files.id) AS avatar_url
     FROM chefs
-    LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+    LEFT JOIN recipes ON(recipes.chef_id = chefs.id)
     GROUP BY chefs.id
-    ORDER BY chefs.name`
+    ORDER BY chefs.name `
 
     db.query(query, (err, results) => {
       if (err) throw `Erro ao buscar chefs: ${err}`

@@ -8,7 +8,11 @@ const {
 module.exports = {
   all(callback) {
     const query = `
-    SELECT * FROM chefs ORDER BY name`
+    SELECT chefs.*, files.id AS file_id, files.name AS file_name, SUBSTRING(files.path, 7) AS avatar_url
+    FROM chefs
+    LEFT JOIN files ON(chefs.file_id = files.id)
+    ORDER BY name ASC
+    `
 
     db.query(query, (err, results) => {
       if (err) throw `Erro ao buscar chefs: ${err}`
@@ -20,8 +24,10 @@ module.exports = {
   show(id, callback) {
 
     const query = `
-    SELECT * FROM chefs
-    WHERE id='${id}'`
+    SELECT chefs.*, files.id AS file_id, files.name AS file_name,SUBSTRING(files.path,7) AS avatar_url
+    FROM chefs
+    LEFT JOIN files ON (chefs.file_id = files.id)
+    WHERE chefs.id='${id}'`
 
     db.query(query, (err, results) => {
       if (err) throw `Erro ao pesquisar a receita, ${err}`
@@ -32,10 +38,12 @@ module.exports = {
   },
   chefRecipes(id, callback) {
     const query = `
-    SELECT recipes.*, chefs.name AS recipe_author
+    SELECT recipes.*, chefs.name AS recipe_author,
+      (select SUBSTRING(files.path, 8) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS RECIPE_FILE
     FROM recipes
-    LEFT JOIN chefs ON (recipes.chef_id=chefs.id)
-    WHERE chef_id=${id}`
+    LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
+    WHERE recipes.chef_id = ${id}
+    ORDER BY TITLE ASC `
 
     db.query(query, (err, results) => {
       if (err) throw `error to find the recipes, ${err}`
@@ -43,25 +51,21 @@ module.exports = {
       callback(results.rows)
     })
   },
-  create(data, callback) {
+  create(data, fileAvatar) {
 
     const query = `INSERT INTO chefs(
       name,
-      avatar_url, 
+      file_id, 
       created_at
       ) VALUES ($1, $2, $3) RETURNING id`
 
     const dados = [
       data.name,
-      data.avatar_url,
+      fileAvatar,
       date(Date.now()).iso
     ]
 
-    db.query(query, dados, (err, results) => {
-      if (err) throw `Erro to create a chef: ${err}`
-
-      callback(results.rows[0].id)
-    })
+    return db.query(query, dados)
 
   },
   chefsOption(callback) {
@@ -84,24 +88,19 @@ module.exports = {
     })
 
   },
-  update(data, callback) {
+  update(data, avatar) {
     const query = `UPDATE chefs SET
       name = ($1),
-      avatar_url = ($2)
+      file_id = ($2)
       WHERE id=$3`
 
     const dados = [
       data.name,
-      data.avatar_url,
+      avatar,
       data.id
     ]
 
-    db.query(query, dados, (err, results) => {
-      if (err) throw `Erro to update a chef: ${err}`
-
-      callback();
-
-    })
+    return db.query(query, dados)
 
   },
   delete(id, callback) {

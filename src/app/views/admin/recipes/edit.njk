@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="content_admin_create">
-    <form class="formEdit" action="/admin/recipes?_method=PUT" method="POST">
+    <form class="formEdit" action="/admin/recipes?_method=PUT" method="POST" enctype="multipart/form-data">
       <section class="details">
         <h1>Editando receita</h1>
         <input type="hidden" name="id" value="{{id}}">
@@ -20,5 +20,6 @@
 
 {% block scripts %}
   <script src="/recipe_admin.js"></script>
+  <script src="/scripts.js"></script>
   <script src="/confirm.js"></script>
 {% endblock scripts %}

@@ -14,7 +14,13 @@
     <div class="chefs">
       {% for chef in chefs %}
         <div class="item">
-          <div class="avatar"><img src="{{chef.avatar_url}}" alt="Foto do chef"></div>
+          <div class="avatar">
+            {% if not chef.avatar_url %}
+              <img src="http://placehold.it/64x64?text=SEM FOTO">
+              {%else%}
+              <img src="{{chef.avatar_url}}" alt="Foto do chef">
+            {% endif %}
+          </div>
           <div class="details">
             <h2>{{chef.name}}</h2>
             <a href="/admin/chefs/{{chef.id}}">Visualizar</a>

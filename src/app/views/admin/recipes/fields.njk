@@ -1,11 +1,29 @@
 <div class="image">
-  <h2>Titulo da receira</h2>
-  <input type="text" name="title" placeholder="Digite um titulo para a receita" value="{{recipe.title}}">
+  <h2>Imagens da receita</h2>
+  <div class="recipe_image">
+    <div class="photos_upload">
+      <input type="file" name="photos" multiple="multiple" id="photos-input" accept="image/*" onchange="PhotosUpload.handleFileInput(event)">
+      <p>
+        <i class="material-icons">add</i>
+      </p>
+    </div>
+    <div class="photos-preview">
+      {% if files %}
+        {% for image in files %}
+          <div class="photo" id="{{image.id}}">
+            <img src="{{image.src}}" alt="{{image.name}}">
+            <i class="material-icons" onclick="PhotosUpload.removeOldPhoto(event)">close</i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="removed_files">
+      {% endif %}
+    </div>
+  </div>
 </div>
 
-<div class="image">
-  <h2>Imagem da receita</h2>
-  <input type="URL" name="image" placeholder="https://" value="{{recipe.image}}">
+<div class="title">
+  <h2>Titulo da receira</h2>
+  <input type="text" name="title" placeholder="Digite um titulo para a receita" value="{{recipe.title}}">
 </div>
 
 <div class="chef">

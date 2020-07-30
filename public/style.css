@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --primary-color: #6558c3;
+}
+
 * {
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 body {
@@ -21,7 +28,6 @@ header {
   margin-bottom: 30px;
   align-items: center;
 }
-
 
 .logo {
   margin-right: 124px;
@@ -611,7 +617,6 @@ header.admin {
   text-decoration: none;
 }
 
-
 /* Chefs publico */
 
 .content_admin_chefs.public {
@@ -636,7 +641,7 @@ header.admin {
   font-family: "Roboto";
   width: 246px;
   height: 37px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   border-radius: 4px;
   padding-left: 15px;
   align-self: center;
@@ -702,4 +707,211 @@ header.admin {
   color: white;
   font-size: 16px;
   text-decoration: none;
+}
+
+/* Photos Upload */
+
+.recipe_image {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 8px;
+}
+
+form .image .photos_upload {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  position: relative;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+form .image .photos_upload p {
+  background-color: white;
+  color: #333;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+form .image #photos-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Photos Preview */
+
+form .image .photos-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  width: 150px;
+}
+
+form .image .photos-preview img {
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.photos-preview .photo {
+  position: relative;
+}
+
+.photos-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+
+  color: red;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 50px;
+  cursor: pointer;
+
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.photos-preview .photo i:hover {
+  opacity: 1;
+}
+
+.gallery {
+  width: 100%;
+}
+
+.gallery .highligth > img {
+  width: 940px;
+  height: 280px;
+
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.gallery .gallery-preview {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 2px;
+  justify-content: end;
+}
+
+.gallery .gallery-preview img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 200ms;
+  border-radius: 2px;
+}
+
+.gallery .gallery-preview img:hover,
+.gallery .gallery-preview img.active {
+  opacity: 1;
+}
+
+.gallery .highlight .lightbox-target {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+
+  overflow: hidden;
+  z-index: 100;
+
+  top: -100%;
+  left: 0;
+
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+.gallery .highlight .lightbox-target img {
+  margin: auto;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+
+  width: 90%;
+  height: 90%;
+
+  object-fit: contain;
+}
+
+.gallery .highlight a.lightbox-close {
+  width: 50px;
+  height: 50px;
+  background: white;
+  position: absolute;
+  top: -80px;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 400ms;
+}
+
+.Avatar {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 140px;
+}
+
+.Avatar input {
+  width: 140px;
+  height: 37px;
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  height: 37px;
+  cursor: pointer;
+}
+
+.Avatar p {
+  width: 100%;
+  display: flex;
+  height: 37px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
 }

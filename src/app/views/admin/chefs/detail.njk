@@ -13,7 +13,13 @@
       </div>
     </div>
     <div class="chef_detail">
-      <img src="{{chef.avatar_url}}" alt="Foto do chef">
+
+      {% if not chef.avatar_url %}
+        <img src="http://placehold.it/500x500?text=SEM FOTO">
+        {%else%}
+        <img src="{{chef.avatar_url}}" alt="Foto do chef">
+      {% endif %}
+
       <span class="name">{{chef.name}}</span>
       <span class="total_receita">{{recipes | length}}
         receitas</span>
@@ -23,7 +29,13 @@
       <div class="recipes">
         {% for recipe in recipes %}
           <div class="item">
-            <div class="img"><img src="{{recipe.image}}"></div>
+            <div class="img">
+              {% if not recipe.recipe_file%}
+                <img src="http://placehold.it/172x80?text=SEM IMAGEM">
+                {%else%}
+                <img src="/{{recipe.recipe_file}}">
+              {% endif %}
+            </div>
             <div class="item_content">
               <h2>{{recipe.title}}</h2>
               <h3>por
