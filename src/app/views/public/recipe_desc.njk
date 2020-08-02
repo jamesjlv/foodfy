@@ -2,7 +2,11 @@
 
 {%block content%}
   <div class="content_recipe_desc">
-    <img src="{{recipe.image}}" alt="{{recipe.title}}">
+    {% if not recipe.image %}
+      <img src="http://placehold.it/940x280?text=NÃO DEU TEMPO DE TIRAR A FOTO, COMERAM TUDO">
+      {%else%}
+      <img src="{{recipe.image}}" alt="{{recipe.title}}">
+    {% endif %}
     <h1>{{recipe.title}}</h1>
     <p class="author">Por
       {{recipe.recipe_author}}</p>

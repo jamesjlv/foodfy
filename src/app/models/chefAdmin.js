@@ -43,7 +43,7 @@ module.exports = {
     FROM recipes
     LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
     WHERE recipes.chef_id = ${id}
-    ORDER BY TITLE ASC `
+    ORDER BY created_at DESC `
 
     db.query(query, (err, results) => {
       if (err) throw `error to find the recipes, ${err}`

@@ -11,7 +11,7 @@ module.exports = {
       (select SUBSTRING(files.path, 8) from recipe_files LEFT JOIN files ON(recipe_files.file_id = files.id) where recipes.id = recipe_files.recipe_id LIMIT 1) AS RECIPE_FILE
     FROM recipes
     LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
-    ORDER BY TITLE ASC `
+    ORDER BY created_at DESC `
 
     db.query(query, (err, results) => {
       if (err) throw `Erro ao buscar receitas: ${err}`
@@ -72,7 +72,7 @@ module.exports = {
       ingredients = ($3),
       preparation = ($4),
       information = ($5)
-      WHERE id= $6 
+      WHERE id= $6
       RETURNING id`
 
     const dados = [

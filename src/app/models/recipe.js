@@ -38,7 +38,7 @@ module.exports = {
     FROM recipes
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
     WHERE recipes.title ILIKE '%${filter}%'
-    ORDER BY TITLE ASC`
+    ORDER BY updated_at DESC`
 
     db.query(query, (err, results) => {
       if (err) throw `Erro ao buscar receitas: ${err}`
@@ -90,6 +90,7 @@ module.exports = {
     FROM recipes
     LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
     ${filterQuery}
+    ORDER BY updated_at DESC
     LIMIT $1 OFFSET $2`
 
     db.query(query, [limit, offset], (err, results) => {
